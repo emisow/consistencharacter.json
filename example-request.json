@@ -1,0 +1,295 @@
+{
+  "input": {
+    "workflow": {
+      "1": {
+        "inputs": {
+          "ckpt_name": "bigasp_v20.safetensors"
+        },
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+          "title": "CheckpointLoaderSimple"
+        }
+      },
+      "4": {
+        "inputs": {
+          "filename": "SD1.5\\pytorch_model.bin"
+        },
+        "class_type": "CLIPVisionLoader",
+        "_meta": {
+          "title": "CLIPVisionLoader"
+        }
+      },
+      "5": {
+        "inputs": {
+          "text": "LANCZOS",
+          "image": [
+            "7",
+            0
+          ]
+        },
+        "class_type": "PrepImageForClipVision",
+        "_meta": {
+          "title": "PrepImageForClipVision"
+        }
+      },
+      "6": {
+        "inputs": {
+          "text": "LANCZOS",
+          "image": [
+            "8",
+            0
+          ]
+        },
+        "class_type": "PrepImageForClipVision",
+        "_meta": {
+          "title": "PrepImageForClipVision"
+        }
+      },
+      "7": {
+        "inputs": {
+          "image": "face 2 (1).png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "LoadImage"
+        }
+      },
+      "8": {
+        "inputs": {
+          "image": "pexels-deep-marasini-12946051 (11).jpg"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "LoadImage"
+        }
+      },
+      "11": {
+        "inputs": {
+          "seed": 661159145812081,
+          "steps": 28,
+          "cfg": 8,
+          "sampler_name": "uni_pc_bh2",
+          "scheduler": "karras",
+          "denoise": 1,
+          "model": [
+            "36",
+            0
+          ],
+          "positive": [
+            "13",
+            0
+          ],
+          "negative": [
+            "14",
+            0
+          ],
+          "latent_image": [
+            "12",
+            0
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "12": {
+        "inputs": {
+          "value": 768
+        },
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+          "title": "EmptyLatentImage"
+        }
+      },
+      "13": {
+        "inputs": {
+          "text": "Indian GIRL POSING",
+          "clip": [
+            "1",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIPTextEncode"
+        }
+      },
+      "14": {
+        "inputs": {
+          "text": "UGLY , DEFORMMED",
+          "clip": [
+            "1",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIPTextEncode"
+        }
+      },
+      "15": {
+        "inputs": {
+          "samples": [
+            "11",
+            0
+          ],
+          "vae": [
+            "1",
+            2
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "18": {
+        "inputs": {
+          "value": true,
+          "input_image": [
+            "32",
+            0
+          ],
+          "source_image": [
+            "19",
+            0
+          ]
+        },
+        "class_type": "ReActorFaceSwap",
+        "_meta": {
+          "title": "ReActorFaceSwap"
+        }
+      },
+      "19": {
+        "inputs": {
+          "image": "face 2 (2).png"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "LoadImage"
+        }
+      },
+      "20": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "18",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "23": {
+        "inputs": {
+          "filename": "ip-adapter-plus_sdxl_vit-h.safetensors"
+        },
+        "class_type": "IPAdapterModelLoader",
+        "_meta": {
+          "title": "IPAdapterModelLoader"
+        }
+      },
+      "26": {
+        "inputs": {
+          "value": true,
+          "clip_vision": [
+            "4",
+            0
+          ],
+          "image_1": [
+            "5",
+            0
+          ],
+          "image_2": [
+            "6",
+            0
+          ],
+          "image_3": [
+            "34",
+            0
+          ]
+        },
+        "class_type": "IPAdapterEncoder",
+        "_meta": {
+          "title": "IPAdapterEncoder"
+        }
+      },
+      "28": {
+        "inputs": {
+          "images": [
+            "15",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "PreviewImage"
+        }
+      },
+      "32": {
+        "inputs": {},
+        "class_type": "Reroute",
+        "_meta": {
+          "title": "Reroute"
+        }
+      },
+      "33": {
+        "inputs": {},
+        "class_type": "Reroute",
+        "_meta": {
+          "title": "Reroute"
+        }
+      },
+      "34": {
+        "inputs": {
+          "text": "LANCZOS",
+          "image": [
+            "35",
+            0
+          ]
+        },
+        "class_type": "PrepImageForClipVision",
+        "_meta": {
+          "title": "PrepImageForClipVision"
+        }
+      },
+      "35": {
+        "inputs": {
+          "image": "pexels-deep-marasini-12946051 (11).jpg"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "LoadImage"
+        }
+      },
+      "36": {
+        "inputs": {
+          "value": 1,
+          "model": [
+            "1",
+            0
+          ],
+          "ipadapter": [
+            "23",
+            0
+          ],
+          "pos_embed": [
+            "26",
+            0
+          ],
+          "neg_embed": [
+            "26",
+            1
+          ]
+        },
+        "class_type": "IPAdapterEmbeds",
+        "_meta": {
+          "title": "IPAdapterEmbeds"
+        }
+      }
+    }
+  }
+}
